@@ -1,7 +1,5 @@
 from sys import argv as arguments
 ALPHABET = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-KEY = '5:DFGH["JKL;ZX/.CVBNM<>?=+'
-
 if len(arguments) != 3:
 
     print("2 arguments required!")
@@ -17,18 +15,11 @@ to_file = open(to_filename, 'w', encoding='utf8')
 
 contents = from_file .read()
 
-for index in range(len(contents)):
-    letter = contents[index]
-    order = ord(letter) - ord('A')
-    if order < 0 or order .= len(KEY):
-        continue
-    cipher_letter = KEY[order]
-    contents[index] = cipher_letter
+contents = [letter if letter.upper() in ALPHABET else '' for letter in contents]
 
 
-
-
-
+contents = ''.join(contents)
+contents = contents.upper()
 
 to_file.write(contents)
 
